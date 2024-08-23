@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4nyaw805a1vy" path="res://scenes(场景)/绿史莱姆.tscn" id="6_1fl25"]
 [ext_resource type="FontFile" uid="uid://su0qg0vgo8en" path="res://assets(素材)/fonts/PixelOperator8.ttf" id="7_7igyw"]
 [ext_resource type="AudioStream" uid="uid://ckxp4jg10qti8" path="res://assets(素材)/sounds/jump.wav" id="10_8try0"]
-[ext_resource type="AudioStream" uid="uid://c2u50g6s46c80" path="res://assets(素材)/sounds/tap.wav" id="11_03o84"]
+[ext_resource type="AudioStream" uid="uid://c47f2uopgowyi" path="res://assets(素材)/sounds/explosion.wav" id="11_0qpd2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gh1e7"]
 texture = ExtResource("2_bj620")
@@ -575,5 +575,8 @@ bus = &"音效"
 
 [node name="奔跑" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("11_03o84")
+stream = ExtResource("11_0qpd2")
+volume_db = -20.0
 bus = &"音效"
+
+[connection signal="finished" from="奔跑" to="玩家/玩家" method="_on_奔跑_finished"]

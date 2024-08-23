@@ -10,7 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_voice = %"跳跃"
 @onready var run_voice = %"奔跑"
-@onready var timer = $Timer
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -36,6 +35,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		if  direction == 0:
 			animated_sprite.play("空闲")
+			run_voice.stop()
 		else :
 			animated_sprite.play("奔跑")
 			
@@ -48,10 +48,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	#if not velocity.x == 0 and is_on_floor() and timer.stop():
-		#timer.start()
+	if not velocity.x == 0 and is_on_floor():
+		if not run_voice.playing:
+			run_voice.play()
 
 	move_and_slide()
-	
-#func _on_timer_timeout():
-	#run_voice.play()
