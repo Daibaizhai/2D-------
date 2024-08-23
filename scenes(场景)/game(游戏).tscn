@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://cal6n0tuo2or3"]
+[gd_scene load_steps=19 format=3 uid="uid://cal6n0tuo2or3"]
 
+[ext_resource type="Script" path="res://scripts/game(游戏).gd" id="1_7dhon"]
 [ext_resource type="Script" path="res://scripts/游戏数据库.gd" id="1_bpfkx"]
 [ext_resource type="PackedScene" uid="uid://mxgmpcpg3223" path="res://scenes(场景)/player(玩家).tscn" id="1_v22o3"]
 [ext_resource type="Texture2D" uid="uid://dbp30fawcg1fo" path="res://assets(素材)/sprites/world_tileset.png" id="2_bj620"]
@@ -455,6 +456,7 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_506hv"]
 
 [node name="游戏" type="Node2D"]
+script = ExtResource("1_7dhon")
 
 [node name="游戏数据库" type="Node" parent="."]
 unique_name_in_owner = true
@@ -571,6 +573,7 @@ you know how。"
 [node name="跳跃" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("10_8try0")
+volume_db = -2.0
 bus = &"音效"
 
 [node name="奔跑" type="AudioStreamPlayer" parent="."]
