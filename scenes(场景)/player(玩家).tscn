@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://mxgmpcpg3223"]
+[gd_scene load_steps=27 format=3 uid="uid://mxgmpcpg3223"]
 
 [ext_resource type="Texture2D" uid="uid://dyikugw71yady" path="res://assets(素材)/sprites/knight.png" id="1_rl5t6"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_jos0h"]
@@ -66,6 +66,10 @@ region = Rect2(192, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnrrh"]
 atlas = ExtResource("1_rl5t6")
 region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejf05"]
+atlas = ExtResource("1_rl5t6")
+region = Rect2(64, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36nav"]
 atlas = ExtResource("1_rl5t6")
@@ -144,6 +148,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ejf05")
+}],
+"loop": true,
+"name": &"死亡_红温",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_36nav")
 }, {
 "duration": 1.0,
@@ -179,7 +191,7 @@ script = ExtResource("2_jos0h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_wufs2")
-animation = &"跳跃"
+animation = &"死亡_红温"
 autoplay = "空闲"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

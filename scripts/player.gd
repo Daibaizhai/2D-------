@@ -15,7 +15,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("跳跃") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -40,7 +40,10 @@ func _physics_process(delta):
 			animated_sprite.play("奔跑")
 			
 	else :
-		animated_sprite.play("跳跃")
+		if animated_sprite.animation == "死亡_红温" :
+			pass
+		else :	
+			animated_sprite.play("跳跃")
 		
 	if direction:
 		velocity.x = direction * SPEED
